@@ -7,23 +7,25 @@ import Index from "./pages/Index";
 import WorkflowBuilder from "./pages/WorkflowBuilder";
 import NotFound from "./pages/NotFound";
 import Workflow from "./pages/WorkflowCreator";
+import { WorkflowsProvider } from "./context/WorkflowsContext"; // ✅ Import context
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/workflow-builder" element={<WorkflowBuilder />} />
-          <Route path="/workflow-creator" element={<Workflow />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <WorkflowsProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/workflow-builder" element={<WorkflowBuilder />} />
+            <Route path="/workflow-creator" element={<Workflow />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </WorkflowsProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
