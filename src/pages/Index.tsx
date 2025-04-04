@@ -10,7 +10,12 @@ const Index = () => {
     >
       <div className="bg-black bg-opacity-70 absolute inset-0"></div>
 
-      <div className="relative z-10  w-full max-w-3xl mb-0 mr-1">
+      <div
+        className="z-10  mb-0"
+        style={{
+          width: "40%",
+        }}
+      >
         <LoginForm />
       </div>
     </div>

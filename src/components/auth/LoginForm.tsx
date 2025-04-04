@@ -29,10 +29,10 @@ const LoginForm: React.FC = () => {
       className="p-8 "
       style={{
         backgroundColor: "#FAFAFA",
-        width: "63%",
+        width: "70%",
         borderTopLeftRadius: "24px",
         borderTopRightRadius: "24px",
-        height: "75vh",
+        height: "85vh",
       }}
     >
       <div className="mb-6">
