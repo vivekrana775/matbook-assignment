@@ -8,6 +8,7 @@ import WorkflowBuilder from "./pages/WorkflowBuilder";
 import NotFound from "./pages/NotFound";
 import Workflow from "./pages/WorkflowCreator";
 import { WorkflowsProvider } from "./context/WorkflowsContext"; // ✅ Import context
+import SignIn from "./pages/SignIn";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/signup" element={<SignIn />} />
             <Route path="/workflow-builder" element={<WorkflowBuilder />} />
             <Route path="/workflow-creator" element={<Workflow />} />
             <Route path="*" element={<NotFound />} />
