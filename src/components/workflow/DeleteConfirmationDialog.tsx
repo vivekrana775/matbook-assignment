@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   AlertDialog,
@@ -26,24 +25,27 @@ const DeleteConfirmationDialog: React.FC<DeleteConfirmationDialogProps> = ({
 }) => {
   return (
     <AlertDialog open={isOpen} onOpenChange={onClose}>
-      <AlertDialogContent className="max-w-md">
+      <AlertDialogContent className="max-w-xl">
         <AlertDialogHeader className="text-center">
-          <AlertDialogTitle className="text-xl">
+          <AlertDialogTitle className="text-center text-xl">
             "Are You Sure You Want To Delete '{processName}'?
           </AlertDialogTitle>
-          <AlertDialogDescription className="text-red-500 font-medium">
+          <AlertDialogDescription className="text-center text-red-500 font-medium">
             You Cannot Undo This Step
           </AlertDialogDescription>
         </AlertDialogHeader>
         <div className="h-px bg-gray-200 w-full my-2"></div>
-        <AlertDialogFooter className="sm:justify-center gap-2">
+        <AlertDialogFooter className="sm:justify-end gap-2">
           <AlertDialogAction
             onClick={onConfirm}
             className="bg-gray-200 text-gray-800 hover:bg-gray-300"
           >
             Yes
           </AlertDialogAction>
-          <AlertDialogCancel onClick={onClose} className="bg-gray-200 text-gray-800 hover:bg-gray-300">
+          <AlertDialogCancel
+            onClick={onClose}
+            className="bg-gray-200 text-gray-800 hover:bg-gray-300"
+          >
             No
           </AlertDialogCancel>
         </AlertDialogFooter>

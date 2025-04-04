@@ -23,6 +23,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import EmailConfigurationDialog from "@/components/workflow/EmailConfigurationDialog";
 import TextBoxConfigurationDialog from "@/components/workflow/TextBoxConfigurationDialog";
+import { useWorkflows } from "@/context/WorkflowsContext";
 
 // Types
 type CustomNode = Node & {
@@ -89,9 +90,7 @@ const Workflow = () => {
     setIsTextBoxConfigurationDialogOpen,
   ] = useState(false);
 
-  const [workflows, setWorkflows] = useState<WorkflowItemData[]>([]);
-
-  const [searchQuery, setSearchQuery] = useState("");
+  const { workflows, setWorkflows } = useWorkflows();
 
   const [currentWorkflowId, setCurrentWorkflowId] = useState<string | null>(
     null
@@ -122,6 +121,7 @@ const Workflow = () => {
     };
     setWorkflows([newWorkflow, ...workflows]);
     setIsSaveDialogOpen(false);
+    navigate("/workflow-builder");
   };
 
   const handleDeleteWorkflow = (id: string) => {
